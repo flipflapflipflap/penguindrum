@@ -26,7 +26,7 @@ var adPercent = 0.1;
 
 var Favicon_URL = `${SCRIPT_FOLDER_URL}/Images/princess.png`;
 
-var ChannelName_Caption = "Lowlifes who won't amount to anything.";
+var ChannelName_Caption = "unmei";
 
 var TitleBarDescription_Caption = '>Streaming:';
 
@@ -1555,12 +1555,12 @@ currenttimebtn = $('<button id="findtime" class="btn btn-xs btn-default" title="
 		}
 });
 
-$('<span id="maxusers" title="Maximum Shoujos">' + MAXUSERS + ' max butai shoujos</span>')
+$('<span id="maxusers" title="Maximum Lowlifes">' + MAXUSERS + ' max lowlifes</span>')
 	.appendTo("#chatheader")
 
 Callbacks.usercount = function(count) {
         CHANNEL.usercount = count;
-        var text = count + " butai shoujo";
+        var text = count + " user";
         if(count != 1) {
             text += "s";
         }
@@ -1568,7 +1568,7 @@ Callbacks.usercount = function(count) {
 
 	if (MAXUSERS < count) {
 		MAXUSERS = count;
-		$("#maxusers").text(MAXUSERS + " max butai shoujo");
+		$("#maxusers").text(MAXUSERS + " max lowlifes");
 		setOpt(CHANNEL.name + "_MAXUSERS" + (new Date().getFullYear()), MAXUSERS);
 	}
 };
@@ -2266,7 +2266,7 @@ if (Math.abs(timeDiff) < 1000) {
 function countdown (element) {
 	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 8,  dayoffset2 = 15,  timeoffset = 12, temp, IsFate = false, JulyHour1 = 0, JulyHour2 = 0, starttime = 19;
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
-	element.append('<h3 id="countdowntitle" align="center">Countdown to June</h3>');
+	element.append('<h3 id="countdowntitle" align="center">Countdown to July</h3>');
 	element.append('<h1 id="countdown" align="center">' + Month + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
 
 	var fieldNameElement = document.getElementById('countdowntitle');
@@ -2326,22 +2326,22 @@ function countdown (element) {
 			cdtext = Month - 1 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
 		}
 		else if (Month == 0) {
-			if (30 - dayoffset2 > Day) {
-						fieldNameElement.innerHTML = "Countdown to the Destination of Fate:";
+			if (31 - dayoffset2 > Day) {
+						fieldNameElement.innerHTML = "Countdown:";
 						cdtext = 11 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-					} else if (((30 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((30 - dayoffset2 == Day) && Hour < (24 - starttime))) {
+					} else if (((31 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((31 - dayoffset2 == Day) && Hour < (24 - starttime))) {
 						fieldNameElement.innerHTML = "";
 						cdtext = "SEIZON SENRYAKU";
 					} else if (30 - dayoffset1 <= Day){
 							temp = dayoffset1 - day;
 							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Fate in:";
+							fieldNameElement.innerHTML = "Streaming in:";
 							cdtext = JulyHour1 + ' : ' + Minute + ' : ' + Seconds;
 					}
 					 else {
 							temp = dayoffset2 - day;
 							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Fate to resume in:";
+							fieldNameElement.innerHTML = "Stream to resume in:";
 							cdtext = JulyHour2 + ' : ' + Minute + ' : ' + Seconds;
 					}			
 			
