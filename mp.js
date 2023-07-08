@@ -24,9 +24,9 @@ SCRIPT_FOLDER_URL = SCRIPT_FOLDER_URL.join('/');
 
 var adPercent = 0.1;
 
-var Favicon_URL = `${SCRIPT_FOLDER_URL}/Images/kirin.png`;
+var Favicon_URL = `${SCRIPT_FOLDER_URL}/Images/princess.png`;
 
-var ChannelName_Caption = "Wakarimasu";
+var ChannelName_Caption = "unmei";
 
 var TitleBarDescription_Caption = '>Streaming:';
 
@@ -1555,12 +1555,12 @@ currenttimebtn = $('<button id="findtime" class="btn btn-xs btn-default" title="
 		}
 });
 
-$('<span id="maxusers" title="Maximum Shoujos">' + MAXUSERS + ' max butai shoujos</span>')
+$('<span id="maxusers" title="Maximum Lowlifes">' + MAXUSERS + ' max lowlifes</span>')
 	.appendTo("#chatheader")
 
 Callbacks.usercount = function(count) {
         CHANNEL.usercount = count;
-        var text = count + " butai shoujo";
+        var text = count + " lowlife";
         if(count != 1) {
             text += "s";
         }
@@ -1568,7 +1568,7 @@ Callbacks.usercount = function(count) {
 
 	if (MAXUSERS < count) {
 		MAXUSERS = count;
-		$("#maxusers").text(MAXUSERS + " max butai shoujo");
+		$("#maxusers").text(MAXUSERS + " max lowlifes");
 		setOpt(CHANNEL.name + "_MAXUSERS" + (new Date().getFullYear()), MAXUSERS);
 	}
 };
@@ -2264,16 +2264,16 @@ if (Math.abs(timeDiff) < 1000) {
 
 
 function countdown (element) {
-	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 3,  dayoffset2 = 10,  timeoffset = 12, temp, isStarlighting = false, JuneHour1 = 0, JuneHour2 = 0, starttime = 19;
+	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 8,  dayoffset2 = 15,  timeoffset = 12, temp, isStreaming = false, JulyHour1 = 0, JulyHour2 = 0, starttime = 19;
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
-	element.append('<h3 id="countdowntitle" align="center">Countdown to June</h3>');
+	element.append('<h3 id="countdowntitle" align="center">Countdown to July</h3>');
 	element.append('<h1 id="countdown" align="center">' + Month + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
 
 	var fieldNameElement = document.getElementById('countdowntitle');
 
 	setInterval(function () { //updates every second
 		time();
-		Starlighting();
+		Streaming();
 		make();
 	}, 1000);
 
@@ -2297,18 +2297,18 @@ function countdown (element) {
 		Month = 6 - month;
 		Day = daysInMonth(month, year) - day;
 		Hour = 23 - hour;
-		JuneHour1 = (dayoffset1-day)*24 - hour + starttime -1;
-		JuneHour2 = (dayoffset2-day)*24 - hour + starttime -1;
+		JulyHour1 = (dayoffset1-day)*24 - hour + starttime -1;
+		JulyHour2 = (dayoffset2-day)*24 - hour + starttime -1;
 		Minute = 59 - minute;
 		Seconds = 59 - second;
 	}
 
-	function Starlighting() {
-		if (isStarlighting === false && Hour === (24-timeoffset) && Month === 0 && Day >= 6) {
-			isStarlighting = true;
+	function Streaming() {
+		if (isStreaming === false && Hour === (24-timeoffset) && Month === 0 && Day >= 6) {
+			isStreaming = true;
 		}
-		if (isStarlighting === true && Hour !== (24-timeoffset)) {
-			isStarlighting = false;
+		if (isStreaming === true && Hour !== (24-timeoffset)) {
+			isStreaming = false;
 		}
 	}
 
@@ -2326,23 +2326,23 @@ function countdown (element) {
 			cdtext = Month - 1 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
 		}
 		else if (Month == 0) {
-			if (30 - dayoffset2 > Day) {
-						fieldNameElement.innerHTML = "Countdown to (next) June:";
+			if (daysInMonth(month, year) - dayoffset2 > Day) {
+						fieldNameElement.innerHTML = "Countdown to (next) July:";
 						cdtext = 11 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
 					} else if (((30 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((30 - dayoffset2 == Day) && Hour < (24 - starttime))) {
 						fieldNameElement.innerHTML = "";
-						cdtext = "THE TIME HAS COME";
-					} else if (30 - dayoffset1 <= Day){
+						cdtext = "SEIZON SENRYAKU";
+					} else if (daysInMonth(month, year) - dayoffset1 <= Day){
 							temp = dayoffset1 - day;
 							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Starlighting in:";
-							cdtext = JuneHour1 + ' : ' + Minute + ' : ' + Seconds;
+							fieldNameElement.innerHTML = "Streaming in:";
+							cdtext = JulyHour1 + ' : ' + Minute + ' : ' + Seconds;
 					}
 					 else {
 							temp = dayoffset2 - day;
 							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Starlighting to resume in:";
-							cdtext = JuneHour2 + ' : ' + Minute + ' : ' + Seconds;
+							fieldNameElement.innerHTML = "Streaming to resume in:";
+							cdtext = JulyHour2 + ' : ' + Minute + ' : ' + Seconds;
 					}			
 			
 		}
