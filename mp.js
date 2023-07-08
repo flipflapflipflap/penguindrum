@@ -2264,7 +2264,7 @@ if (Math.abs(timeDiff) < 1000) {
 
 
 function countdown (element) {
-	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 8,  dayoffset2 = 15,  timeoffset = 12, temp, isStreaming = false, JulyHour1 = 0, JulyHour2 = 0, starttime = 19;
+	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 8,  dayoffset2 = 15,  timeoffset = 12, temp, isStreaming = false, ChosenMonth = 7, JulyHour1 = 0, JulyHour2 = 0, starttime = 19;
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
 	element.append('<h3 id="countdowntitle" align="center">Countdown to July</h3>');
 	element.append('<h1 id="countdown" align="center">' + Month + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
@@ -2294,7 +2294,7 @@ function countdown (element) {
 		minute = D.getUTCMinutes();
 		second = D.getUTCSeconds();
 
-		Month = 6 - month;
+		Month = ChosenMonth - month;
 		Day = daysInMonth(month, year) - day;
 		Hour = 23 - hour;
 		JulyHour1 = (dayoffset1-day)*24 - hour + starttime -1;
