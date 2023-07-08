@@ -24,9 +24,9 @@ SCRIPT_FOLDER_URL = SCRIPT_FOLDER_URL.join('/');
 
 var adPercent = 0.1;
 
-var Favicon_URL = `${SCRIPT_FOLDER_URL}/Images/princess.png`;
+var Favicon_URL = `${SCRIPT_FOLDER_URL}/Images/kirin.png`;
 
-var ChannelName_Caption = "unmei";
+var ChannelName_Caption = "Wakarimasu";
 
 var TitleBarDescription_Caption = '>Streaming:';
 
@@ -797,7 +797,7 @@ if (USEROPTS.hidevid) {
 }
 
 //Team Colour
-$('head').append('<script type="text/javascript" src="' + `${SCRIPT_FOLDER_URL}/mpteamcolor.js` + '">');
+$('head').append('<script type="text/javascript" src="' + `${SCRIPT_FOLDER_URL}/rsteamcolor.js` + '">');
 
 // changing initial layout to compact
 $("body").addClass('fluid');
