@@ -2329,7 +2329,7 @@ function countdown (element) {
 			if (ChosenDays - dayoffset2 > Day) {
 						fieldNameElement.innerHTML = "Countdown to (next) July:";
 						cdtext = 11 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-					} else if (((30 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((30 - dayoffset2 == Day) && Hour < (24 - starttime))) {
+					} else if (((31 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((31 - dayoffset2 == Day) && Hour < (24 - starttime))) {
 						fieldNameElement.innerHTML = "";
 						cdtext = "SEIZON SENRYAKU";
 					} else if (ChosenDays - dayoffset1 <= Day){
