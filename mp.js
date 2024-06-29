@@ -1555,12 +1555,12 @@ currenttimebtn = $('<button id="findtime" class="btn btn-xs btn-default" title="
 		}
 });
 
-$('<span id="maxusers" title="Maximum Lowlifes">' + MAXUSERS + ' max lowlifes</span>')
+$('<span id="maxusers" title="Maximum Pengins">' + MAXUSERS + ' max pengins</span>')
 	.appendTo("#chatheader")
 
 Callbacks.usercount = function(count) {
         CHANNEL.usercount = count;
-        var text = count + " lowlife";
+        var text = count + " pengin";
         if(count != 1) {
             text += "s";
         }
@@ -1568,7 +1568,7 @@ Callbacks.usercount = function(count) {
 
 	if (MAXUSERS < count) {
 		MAXUSERS = count;
-		$("#maxusers").text(MAXUSERS + " max lowlifes");
+		$("#maxusers").text(MAXUSERS + " max pengins");
 		setOpt(CHANNEL.name + "_MAXUSERS" + (new Date().getFullYear()), MAXUSERS);
 	}
 };
@@ -2335,13 +2335,13 @@ function countdown (element) {
 					} else if (ChosenDays - dayoffset1 <= Day){
 							temp = dayoffset1 - day;
 							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Streaming in:";
+							fieldNameElement.innerHTML = "Unmei in:";
 							cdtext = JulyHour1 + ' : ' + Minute + ' : ' + Seconds;
 					}
 					 else {
 							temp = dayoffset2 - day;
 							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Streaming to resume in:";
+							fieldNameElement.innerHTML = "Unmei to resume in:";
 							cdtext = JulyHour2 + ' : ' + Minute + ' : ' + Seconds;
 					}			
 			
