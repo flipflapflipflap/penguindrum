@@ -2323,7 +2323,7 @@ function countdown (element) {
 						var testing2 = Hour;
 						var testing3 = (AugustHour+Number(Hour)) % 24;
 						fieldNameElement.innerHTML = "Invisible Storm in:";
-						cdtext = dayDiff + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
+						cdtext = testing1 + ' : ' + testing1 + ' : ' + testing1 + ' : ' +dayDiff + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
 					} else if (((31 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((31 - dayoffset2 == Day) && Hour < (24 - starttime))) {
 						fieldNameElement.innerHTML = "";
 						cdtext = "SEIZON SENRYAKU";
