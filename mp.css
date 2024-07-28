@@ -207,6 +207,27 @@ footer {padding-bottom:5px}
 .teamsexy::before{background:url('./Images/sexy.png');}
 .teamsumika::before{background:url('./Images/sumika.png');}
 .teamyurika::before{background:url('./Images/yurika.png');}
+.teamakio::before{background:url('./Images/akio.png');}
+.teamanthy::before{background:url('./Images/anthy.png');}
+.teamchuchu::before{background:url('./Images/chuchu.png');}
+.teamdios::before{background:url('./Images/dios.png');}
+.teamjuri::before{background:url('./Images/juri.png');}
+.teamkanae::before{background:url('./Images/kanae.png');}
+.teamkeiko::before{background:url('./Images/keiko.png');}
+.teamkozue::before{background:url('./Images/kozue.png');}
+.teamkyouichi::before{background:url('./Images/kyouichi.png');}
+.teammamiya::before{background:url('./Images/mamiya.png');}
+.teammari::before{background:url('./Images/mari.png');}
+.teammiki::before{background:url('./Images/miki.png');}
+.teammitsuru::before{background:url('./Images/mitsuru.png');}
+.teamnanami::before{background:url('./Images/nanami.png');}
+.teamruka::before{background:url('./Images/ruka.png');}
+.teamshiori::before{background:url('./Images/shiori.png');}
+.teamsouji::before{background:url('./Images/souji.png');}
+.teamtatsuya::before{background:url('./Images/tatsuya.png');}
+.teamtouga::before{background:url('./Images/touga.png');}
+.teamutena::before{background:url('./Images/utena.png');}
+.teamwakaba::before{background:url('./Images/wakaba.png');}
 
 .username::before{
 	content:"AA";
