@@ -2318,7 +2318,7 @@ function countdown (element) {
 		else if (Month == 0) {
 			if (ChosenDays - dayoffset2 > Day) {
 						var dayDiff = (Number(Day)+Number(dayoffset3));
-						var hourDiff = starttime - hour -1
+						var hourDiff = starttime - hour -1;
 						fieldNameElement.innerHTML = "Invisible Storm in:";
 						cdtext = dayDiff + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
 					} else if (((31 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((31 - dayoffset2 == Day) && Hour < (24 - starttime))) {
