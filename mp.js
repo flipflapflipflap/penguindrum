@@ -2363,7 +2363,7 @@ function countdown (element) {
 
 		else {
 
-			else if (Month == -2){
+			if (Month == -2){
 			cdtext = 09 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
 			}
 
