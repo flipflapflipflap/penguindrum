@@ -2253,7 +2253,7 @@ if (Math.abs(timeDiff) < 1000) {
 
 
 function countdown (element) {
-	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 13,  dayoffset2 = 20,  dayoffset3 = 10,  timeoffset = 12, temp, isStreaming = false, ChosenMonth = 7, ChosenDays = 31, JulyHour1 = 0, JulyHour2 = 0, AugustHour = 0,starttime = 19;
+	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 13,  dayoffset2 = 20,  dayoffset3 = 10,  timeoffset = 12, temp, isStreaming = false, ChosenMonth = 7, ChosenDays = 31, JulyHour1 = 0, JulyHour2 = 0, AugustHour = 0,hourDiff = 0,starttime = 19;
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
 	element.append('<h3 id="countdowntitle" align="center">Countdown to July</h3>');
 	element.append('<h1 id="countdown" align="center">' + Month + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
@@ -2289,6 +2289,7 @@ function countdown (element) {
 		JulyHour1 = (dayoffset1-day)*24 - hour + starttime -1;
 		JulyHour2 = (dayoffset2-day)*24 - hour + starttime -1;
 		AugustHour = (dayoffset3-day)*24 - hour + starttime -1;
+		hourDiff = starttime - hour -1;
 		Minute = 59 - minute;
 		Seconds = 59 - second;
 	}
@@ -2318,7 +2319,6 @@ function countdown (element) {
 		else if (Month == 0) {
 			if (ChosenDays - dayoffset2 > Day) {
 						var dayDiff = (Number(Day)+Number(dayoffset3));
-						var hourDiff = starttime - hour -1;
 						fieldNameElement.innerHTML = "Invisible Storm in:";
 						cdtext = dayDiff + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
 					} else if (((31 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((31 - dayoffset2 == Day) && Hour < (24 - starttime))) {
