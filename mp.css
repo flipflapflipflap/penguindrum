@@ -200,12 +200,12 @@ footer {padding-bottom:5px}
 .teamkonomi::before{background:url('./Images/konomi.png');}
 .teamkureha::before{background:url('./Images/kureha.png');}
 .teamlulu::before{background:url('./Images/lulu.png');}
-.teamlulubear::before{background:url('./Images/.png');}
-.teammilne::before{background:url('./Images/lulubear.png');}
-.teammitsuko::before{background:url('./Images/milne.png');}
-.teamreia::before{background:url('./Images/mitsuko.png');}
-.teamsexy::before{background:url('./Images/reia.png');}
-.teamsumika::before{background:url('./Images/sexy.png');}
+.teamlulubear::before{background:url('./Images/lulubear.png');}
+.teammilne::before{background:url('./Images/milne.png');}
+.teammitsuko::before{background:url('./Images/mitsuko.png');}
+.teamreia::before{background:url('./Images/reia.png');}
+.teamsexy::before{background:url('./Images/sexy.png');}
+.teamsumika::before{background:url('./Images/sumika.png');}
 .teamyurika::before{background:url('./Images/yurika.png');}
 
 .username::before{
