@@ -1,4 +1,4 @@
-var teamList_4cc = ["chiemi","eriko","esmeralda","hibari","hikari","himari","kanba","keiju","kenzan","mario","masako","momoka","penguin1","penguin2","penguin3","ringo","sanetoshi","satoshi","shouma","yuri"];
+var teamList_4cc = ["chiemi","eriko","esmeralda","hibari","hikari","himari","kanba","keiju","kenzan","mario","masako","momoka","penguin1","penguin2","penguin3","ringo","sanetoshi","satoshi","shouma","yuri","beauty","cool","ginko","ginkobear","kaoru","konomi","kureha","lulu","lulubear","milne","mitsuko","reia","sexy","sumika","yurika"];
 
 
 function setTeamList(listOfTeams){
