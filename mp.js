@@ -2469,10 +2469,10 @@ function formatChatMessage(data, last) {
 
 			var noHTMLMsg = data.msg.replace(/<.+?>/gi," ");
 			var splitMsg = noHTMLMsg.split(" ");
-			for (var iChar = 0; iChar < splitMsg.length; iChar++) {
-				if (splitMsg[iChar].length > 25) {
-					data.msg = data.msg.substring(0, 25 + greaterThanSign);
-					break;
+			//for (var iChar = 0; iChar < splitMsg.length; iChar++) {
+				//if (splitMsg[iChar].length > 25) {
+					//data.msg = data.msg.substring(0, 25 + greaterThanSign);
+					//break;
 				}
 			}
 		}
