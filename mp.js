@@ -2473,8 +2473,8 @@ function formatChatMessage(data, last) {
 				//if (splitMsg[iChar].length > 25) {
 					//data.msg = data.msg.substring(0, 25 + greaterThanSign);
 					//break;
-				}
-			}
+				//}
+			//}
 		}
 //	}
     last.name = data.username;
