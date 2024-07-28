@@ -2253,7 +2253,7 @@ if (Math.abs(timeDiff) < 1000) {
 
 
 function countdown (element) {
-	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 13,  dayoffset2 = 20,  timeoffset = 12, temp, isStreaming = false, ChosenMonth = 7, ChosenDays = 31, JulyHour1 = 0, JulyHour2 = 0, starttime = 19;
+	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 13,  dayoffset2 = 20,  dayoffset3 = 10,  timeoffset = 12, temp, isStreaming = false, ChosenMonth = 7, ChosenDays = 31, JulyHour1 = 0, JulyHour2 = 0, AugustHour = 0,starttime = 19;
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
 	element.append('<h3 id="countdowntitle" align="center">Countdown to July</h3>');
 	element.append('<h1 id="countdown" align="center">' + Month + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
@@ -2288,6 +2288,7 @@ function countdown (element) {
 		Hour = 23 - hour;
 		JulyHour1 = (dayoffset1-day)*24 - hour + starttime -1;
 		JulyHour2 = (dayoffset2-day)*24 - hour + starttime -1;
+		AugustHour = (dayoffset3-day)*24 - hour + starttime -1;
 		Minute = 59 - minute;
 		Seconds = 59 - second;
 	}
@@ -2316,8 +2317,8 @@ function countdown (element) {
 		}
 		else if (Month == 0) {
 			if (ChosenDays - dayoffset2 > Day) {
-						fieldNameElement.innerHTML = "Countdown to (next) July:";
-						cdtext = 11 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
+						fieldNameElement.innerHTML = "Invisible Storm in:";
+						cdtext = (Day+dayoffset3+((AugustHour+Hour) % 24)) + ' : ' + (AugustHour+Hour - ((AugustHour+Hour) % 24)*24) + ' : ' + Minute + ' : ' + Seconds;
 					} else if (((31 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((31 - dayoffset2 == Day) && Hour < (24 - starttime))) {
 						fieldNameElement.innerHTML = "";
 						cdtext = "SEIZON SENRYAKU";
@@ -2335,6 +2336,22 @@ function countdown (element) {
 					}			
 			
 		}
+
+		else if (Month == -1) {
+				if (ChosenDays - dayoffset3 > Day) {
+				fieldNameElement.innerHTML = "Countdown to July:";
+					cdtext = 10 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
+				} else if (((31 - dayoffset3 == Day) && Hour < (24 - starttime))) {
+					fieldNameElement.innerHTML = "";
+					cdtext = "SEIZON SENRYAKU";
+				} else if (ChosenDays - dayoffset3 <= Day){
+						temp = dayoffset1 - day;
+						temp = '0' + temp;
+						fieldNameElement.innerHTML = "Invisible Storm in:";
+						cdtext = AugustHour + ' : ' + Minute + ' : ' + Seconds;
+				}
+			}
+
 		else {
 			if (Month == -1){
 			cdtext = 10 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
