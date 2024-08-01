@@ -2294,6 +2294,13 @@ function countdown (element) {
 		////////// FIX FOR PENGUINDRUM TOO IN THE FUTURE //////////////////////////////
 		dayDiff = (Number(Day)+Number(dayoffset3));
 
+		if (Month == -1) {
+			dayDiff = (Number(Day)-Number(dayoffset3));
+		}
+		else {
+			dayDiff = (Number(Day)+Number(dayoffset3));
+		}		
+
 		hourDiff = starttime - hour -1;	
 		if(hourDiff < 0){
 			hourDiff += 24;
