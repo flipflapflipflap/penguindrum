@@ -2295,7 +2295,7 @@ function countdown (element) {
 		dayDiff = (Number(Day)+Number(dayoffset3));
 
 		if (Month == -1) {
-			dayDiff = (Number(Day)-Number(dayoffset3));
+			dayDiff = Number(dayoffset3) - Number(day);
 		}
 		else {
 			dayDiff = (Number(Day)+Number(dayoffset3));
