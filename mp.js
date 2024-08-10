@@ -2259,7 +2259,7 @@ function countdown (element) {
 	var dayoffsetMP1Pst = 12, dayoffsetMP2Pst =  19;
 	var monthoffsetMP = 7;
 	
-	var dayoffsetYK = 10, dayoffsetPstYK =  9;
+	var dayoffsetYK = 9, dayoffsetPstYK =  9;
 	var monthoffsetYK = 8;
 
 
