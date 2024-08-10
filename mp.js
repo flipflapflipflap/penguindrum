@@ -2260,7 +2260,7 @@ function countdown (element) {
 	var monthoffsetMP = 7;
 	
 	var dayoffsetYK = 10, dayoffsetPstYK =  9;
-	var monthoffset = 8;
+	var monthoffsetYK = 8;
 
 
 	var timeoffset = 12, temp, isStreaming = false, starttime = 19,hourDiff;
@@ -2277,12 +2277,12 @@ function countdown (element) {
 	var monthPstNumbers = [0,31,58+leapPstYear,89+leapPstYear,119+leapPstYear,150+leapPstYear,180+leapPstYear,211+leapPstYear,242+leapPstYear,272+leapPstYear,303+leapPstYear,333+leapPstYear];
 	
 	
-	var chosenDayMP1 = monthPreNumbers[monthoffset-1] + dayoffsetMP1;
-	var chosenDayMP1Pst = monthPstNumbers[monthoffset-1] + dayoffsetMP1Pst;
+	var chosenDayMP1 = monthPreNumbers[monthoffsetMP-1] + dayoffsetMP1;
+	var chosenDayMP1Pst = monthPstNumbers[monthoffsetMP-1] + dayoffsetMP1Pst;
 
-	var chosenDayMP2 = monthPreNumbers[monthoffset-1] + dayoffsetMP2;
+	var chosenDayMP2 = monthPreNumbers[monthoffsetMP-1] + dayoffsetMP2;
 
-	var chosenDayYK = monthPreNumbers[monthoffset-1] + dayoffsetYK;
+	var chosenDayYK = monthPreNumbers[monthoffsetYK-1] + dayoffsetYK;
 	
 	
 	var currentDay;
@@ -2290,7 +2290,7 @@ function countdown (element) {
 	
 	
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
-	element.append('<h3 id="countdowntitle" align="center">Flip Flapping in:</h3>');
+	element.append('<h3 id="countdowntitle" align="center">Unmei:</h3>');
 	element.append('<h1 id="countdown" align="center">'  + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
 
 	var fieldNameElement = document.getElementById('countdowntitle');
