@@ -2307,7 +2307,7 @@ function countdown (element) {
 	
 	function dayDiff(chosenday,chosendaypst){
 		var dt;
-		if(chosenYear >= year) dt = chosenday - currentDay;
+		if(chosenYear >= D.getUTCFullYear()) dt = chosenday - currentDay;
 		else dt = chosendaypst - currentDay;
 
 		if(dt < 10) dt = '0' + dt;
