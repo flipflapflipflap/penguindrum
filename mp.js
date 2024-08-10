@@ -2259,7 +2259,7 @@ function countdown (element) {
 	var dayoffsetMP1Pst = 12, dayoffsetMP2Pst =  19;
 	var monthoffsetMP = 7;
 	
-	var dayoffsetYK = 9, dayoffsetPstYK =  9;
+	var dayoffsetYK = 10, dayoffsetPstYK =  9;
 	var monthoffsetYK = 8;
 
 
@@ -2399,7 +2399,7 @@ function countdown (element) {
 		else {
 			fieldNameElement.innerHTML = "See you next year...";
 			if(chosenYear > D.getUTCFullYear()) cdtext = Number(chosenDayMP1 + 365 + Number((new Date(D.getUTCFullYear(),1,29)).getMonth() == 1) - currentDay) + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;		
-			else cdtext = Number(chosenDayMP1Pst + 365 + leapPreYear - currentDay) + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
+			else cdtext = Number(chosenDayMP1Pst + 365 + leapPreYear - currentDay +1) + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
 			
 		
 		}
