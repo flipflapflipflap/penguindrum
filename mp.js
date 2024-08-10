@@ -2290,7 +2290,7 @@ function countdown (element) {
 	
 	
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
-	element.append('<h3 id="countdowntitle" align="center">Unmei:</h3>');
+	element.append('<h3 id="countdowntitle" align="center">Unmei in:</h3>');
 	element.append('<h1 id="countdown" align="center">'  + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
 
 	var fieldNameElement = document.getElementById('countdowntitle');
@@ -2337,7 +2337,8 @@ function countdown (element) {
 			hourDiff += 24;
 		}		
 
-		Month = monthoffset - month;
+		// Is month really needed? Take it out later
+		Month = monthoffsetMP - month;
 		Day = daysInMonth(month, year) - day;
 		Hour = 23 - hour;
 		Minute = 59 - minute;
