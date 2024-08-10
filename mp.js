@@ -2253,10 +2253,45 @@ if (Math.abs(timeDiff) < 1000) {
 
 
 function countdown (element) {
-	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayoffset1 = 13,  dayoffset2 = 20,  dayoffset3 = 10,  timeoffset = 12, temp, isStreaming = false, ChosenMonth = 7, ChosenDays = 31, JulyHour1 = 0, JulyHour2 = 0, AugustHour = 0,hourDiff = 0,dayDiff=0,starttime = 19;
+	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0;
+	
+	var dayoffsetMP1 = 13,    dayoffsetMP2 =  20;
+	var dayoffsetMP1Pst = 12, dayoffsetMP2Pst =  19;
+	var monthoffsetMP = 7;
+	
+	var dayoffsetYK = 10, dayoffsetPstYK =  9;
+	var monthoffset = 8;
+
+
+	var timeoffset = 12, temp, isStreaming = false, starttime = 19,hourDiff;
+	
+	var chosenYear = 2024;
+	
+	var daysInYear, dayOfYear, day2, numOfDays;
+	var D;
+	
+	var leapPreYear = Number((new Date(chosenYear    ,1,29)).getMonth() == 1);
+	var leapPstYear = Number((new Date(chosenYear + 1,1,29)).getMonth() == 1);
+	
+	var monthPreNumbers = [0,31,58+leapPreYear,89+leapPreYear,119+leapPreYear,150+leapPreYear,180+leapPreYear,211+leapPreYear,242+leapPreYear,272+leapPreYear,303+leapPreYear,333+leapPreYear];
+	var monthPstNumbers = [0,31,58+leapPstYear,89+leapPstYear,119+leapPstYear,150+leapPstYear,180+leapPstYear,211+leapPstYear,242+leapPstYear,272+leapPstYear,303+leapPstYear,333+leapPstYear];
+	
+	
+	var chosenDayMP1 = monthPreNumbers[monthoffset-1] + dayoffsetMP1;
+	var chosenDayMP1Pst = monthPstNumbers[monthoffset-1] + dayoffsetPstMP1;
+
+	var chosenDayMP2 = monthPreNumbers[monthoffset-1] + dayoffsetMP2;
+
+	var chosenDayYK = monthPreNumbers[monthoffset-1] + dayoffsetYK;
+	
+	
+	var currentDay;
+	
+	
+	
 	//var month = 0, day = 0, hour = 0, minute = 0, seconds = 0;
-	element.append('<h3 id="countdowntitle" align="center">Countdown to July</h3>');
-	element.append('<h1 id="countdown" align="center">' + Month + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
+	element.append('<h3 id="countdowntitle" align="center">Flip Flapping in:</h3>');
+	element.append('<h1 id="countdown" align="center">'  + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds + '</h1>');
 
 	var fieldNameElement = document.getElementById('countdowntitle');
 
@@ -2269,10 +2304,20 @@ function countdown (element) {
 	function daysInMonth(month,year) {
 		return new Date(year, month, 0).getDate();
 	}
+	
+	function dayDiff(chosenday,chosendaypst){
+		var dt;
+		if(chosenYear >= year) dt = chosenday - currentDay;
+		else dt = chosendaypst - currentDay;
+
+		if(dt < 10) dt = '0' + dt;
+		
+		return dt;
+	}
 
 	function time() { //does the time work
-		var D = new Date(new Date().getTime() - timeDiff);
 		var year, month, day, hour, minute, second;
+		D = new Date(new Date().getTime() - timeDiff);
 		//var offset = -300; //desired offset from UTC in minutes. EST: -300, EDT: -240
 
 		//D.setMinutes(D.getUTCMinutes() + offset);
@@ -2282,31 +2327,19 @@ function countdown (element) {
 		hour = D.getUTCHours();
 		minute = D.getUTCMinutes();
 		second = D.getUTCSeconds();
-
-		Month = ChosenMonth - month;
-		Day = daysInMonth(month, year) - day;
-		Hour = 23 - hour;
-		JulyHour1 = (dayoffset1-day)*24 - hour + starttime -1;
-		JulyHour2 = (dayoffset2-day)*24 - hour + starttime -1;
-		AugustHour = (dayoffset3-day)*24 - hour + starttime -1;
 		
 		
-		////////// FIX FOR PENGUINDRUM TOO IN THE FUTURE //////////////////////////////
-		dayDiff = (Number(Day)+Number(dayoffset3));
-
-		if (Month == -1) {
-			dayDiff = Number(dayoffset3) - Number(day);
-		}
-		else {
-			dayDiff = (Number(Day)+Number(dayoffset3));
-		}		
-
+		currentDay = Number(monthPreNumbers[D.getUTCMonth()] + D.getUTCDate());
+		
+		
 		hourDiff = starttime - hour -1;	
 		if(hourDiff < 0){
 			hourDiff += 24;
-			dayDiff -= 1;
-		}
-		
+		}		
+
+		Month = monthoffset - month;
+		Day = daysInMonth(month, year) - day;
+		Hour = 23 - hour;
 		Minute = 59 - minute;
 		Seconds = 59 - second;
 	}
@@ -2321,76 +2354,53 @@ function countdown (element) {
 	}
 
 	function make() { //checks the numbers then applies
-		if(Month < 10 && Month >= 0) Month = '0' + Month;
-		if(Day < 10) Day = '0' + Day;
-		if(Hour < 10) Hour = '0' + Hour;
+		var hT = hourDiff;
+		
+		if(hourDiff < 10) hT = '0' + hT;
 		if(Minute < 10) Minute = '0' + Minute;
 		if(Seconds < 10) Seconds = '0' + Seconds;//these lines add a 0 if it's less than 10
-
+	
 		//check if time is reasonable. if not gtfo
 		if (Hour > 23 || Minute > 59) {
-			console.error('Countdown error: time is incorrect ' + Hour + ' : ' + Minute + ' : ' + Seconds);
-		} else if (Month > 0) {
-			cdtext = Month - 1 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
+			console.error('Countdown error: time is incorrect ' + Minute + ' : ' + Seconds);
 		}
-		else if (Month == 0) {
-			if (ChosenDays - dayoffset2 > Day) {
-						fieldNameElement.innerHTML = "Invisible Storm in:";
-						cdtext = dayDiff + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
-					} else if (((31 - dayoffset1 == Day) && Hour < (24 - starttime)) || ((31 - dayoffset2 == Day) && Hour < (24 - starttime))) {
-						fieldNameElement.innerHTML = "";
-						cdtext = "SEIZON SENRYAKU";
-					} else if (ChosenDays - dayoffset1 <= Day){
-							temp = dayoffset1 - day;
-							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Unmei in:";
-							cdtext = JulyHour1 + ' : ' + Minute + ' : ' + Seconds;
-					}
-					 else {
-							temp = dayoffset2 - day;
-							temp = '0' + temp;
-							fieldNameElement.innerHTML = "Unmei to resume in:";
-							cdtext = JulyHour2 + ' : ' + Minute + ' : ' + Seconds;
-					}			
-			
-		}
-
-		else if (Month == -1) {
-				if (ChosenDays - dayoffset3 > Day) {
-				fieldNameElement.innerHTML = "See you next year...";
-					cdtext = 10 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-				} else if (((31 - dayoffset3 == Day) && Hour < (24 - starttime))) {
+		else if (currentDay <= chosenDayMP1 && chosenYear <= D.getUTCFullYear() ) {
+			if (currentDay == chosenDayMP1 && starttime - D.getUTCHours() -1 < 0) {
 					fieldNameElement.innerHTML = "";
-					cdtext = "G A O";
-				} else if (ChosenDays - dayoffset3 <= Day){
-						fieldNameElement.innerHTML = "Invisible Storm in:";
-						cdtext = dayDiff + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
+					cdtext = "SEIZON SENRYAKU";
 				}
-			}
-
+			else {
+					cdtext = dayDiff(chosenDayMP1,chosenDayMP1) + ' : ' + hT + ' : ' + Minute + ' : ' + Seconds;
+				}
+		}
+		else if (currentDay <= chosenDayMP2 && chosenYear <= D.getUTCFullYear() ) {
+			if (currentDay == chosenDayMP2 && starttime - D.getUTCHours() -1 < 0) {
+					fieldNameElement.innerHTML = "";
+					cdtext = "SEIZON SENRYAKU";
+				}
+			else {
+					fieldNameElement.innerHTML = "Unmei to resume in:";
+					cdtext = dayDiff(chosenDayMP2,chosenDayMP2) + ' : ' + hT + ' : ' + Minute + ' : ' + Seconds;
+				}
+		}
+		else if (currentDay <= chosenDayYK && chosenYear <= D.getUTCFullYear() ) {
+			if (currentDay == chosenDayYK && starttime - D.getUTCHours() -1 < 0) {
+					fieldNameElement.innerHTML = "";
+					cdtext = "S H A B A D A D U";
+				}
+			else {
+					fieldNameElement.innerHTML = "Invisible Storm in:";
+					cdtext = dayDiff(chosenDayYK,chosenDayYK) + ' : ' + hT + ' : ' + Minute + ' : ' + Seconds;
+				}
+		}		
+		
+		
 		else {
-
-			if (Month == -2){
-			cdtext = 09 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-			}
-
-			else if (Month == -3){
-			cdtext = 08 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-			}
-
-			else if (Month == -4){
-			cdtext = 07 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-			}
-
-			else if (Month == -5){
-			cdtext = 06 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-			}
-																					
-			else{
-			cdtext = 05 + ' : ' + Day + ' : ' + Hour + ' : ' + Minute + ' : ' + Seconds;
-
-			}
+			fieldNameElement.innerHTML = "See you next year...";
+			if(chosenYear > D.getUTCFullYear()) cdtext = Number(chosenDayMP1 + 365 + Number((new Date(D.getUTCFullYear(),1,29)).getMonth() == 1) - currentDay) + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;		
+			else cdtext = Number(chosenDayMP1Pst + 365 + leapPreYear - currentDay) + ' : ' + hourDiff + ' : ' + Minute + ' : ' + Seconds;
 			
+		
 		}
 
 			document.getElementById("countdown").textContent = cdtext;
