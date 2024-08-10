@@ -2278,7 +2278,7 @@ function countdown (element) {
 	
 	
 	var chosenDayMP1 = monthPreNumbers[monthoffset-1] + dayoffsetMP1;
-	var chosenDayMP1Pst = monthPstNumbers[monthoffset-1] + dayoffsetPstMP1;
+	var chosenDayMP1Pst = monthPstNumbers[monthoffset-1] + dayoffsetMP1Pst;
 
 	var chosenDayMP2 = monthPreNumbers[monthoffset-1] + dayoffsetMP2;
 
