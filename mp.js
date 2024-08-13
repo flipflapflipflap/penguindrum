@@ -2335,6 +2335,7 @@ function countdown (element) {
 		hourDiff = starttime - hour -1;	
 		if(hourDiff < 0){
 			hourDiff += 24;
+			dayDiff -= 1;
 		}		
 
 		// Is month really needed? Take it out later
