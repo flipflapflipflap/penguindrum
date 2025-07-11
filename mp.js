@@ -2255,11 +2255,11 @@ if (Math.abs(timeDiff) < 1000) {
 function countdown (element) {
 	var Month = 0, Day = 0, day = 0, Hour = 0, Minute = 0, Seconds = 0, dayChange = 0;
 	
-	var dayoffsetMP1 = 13,    dayoffsetMP2 =  20;
-	var dayoffsetMP1Pst = 12, dayoffsetMP2Pst =  19;
+	var dayoffsetMP1 = 12,    dayoffsetMP2 =  19;
+	var dayoffsetMP1Pst = 11, dayoffsetMP2Pst =  18;
 	var monthoffsetMP = 7;
 	
-	var dayoffsetYK = 10, dayoffsetPstYK =  9;
+	var dayoffsetYK = 9, dayoffsetPstYK =  8;
 	var monthoffsetYK = 8;
 
 
