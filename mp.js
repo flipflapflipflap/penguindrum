@@ -15,7 +15,8 @@ var adPercent = 0.1;
 
 var Favicon_URL = `${SCRIPT_FOLDER_URL}/Images/princess.png`;
 
-var ChannelName_Caption = "🠜 生存戦略 ⮎ 95 ⮌ 存在証明 🠞";
+//var ChannelName_Caption = "🠜 生存戦略 ⮎ 95 ⮌ 存在証明 🠞";
+var ChannelName_Caption = "⮎ 95 ⮌";
 
 var TitleBarDescription_Caption = '>Streaming:';
 
